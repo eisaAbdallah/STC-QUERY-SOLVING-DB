@@ -1,0 +1,4 @@
+select u.user_id,u.username,t.training_id,t.training_date,count(t.training_id) as count 
+from User u left join Training_details t ON u.user_id=t.user_id  
+group by u.user_id,u.username,t.training_id,t.training_date HAVING count>1 
+order by t.training_date DESC;
